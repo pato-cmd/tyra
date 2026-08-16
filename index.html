@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07070F" />
+  <meta name="description" content="For My Little Cat — a little universe built for you." />
+  <title>For My Little Cat ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Great+Vibes&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="is-locked">
+  <div class="grain"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follow" id="cursorFollow"></div>
+  <div class="progress" id="progress"></div>
+  <canvas id="stars"></canvas>
+  <canvas id="fx"></canvas>
+  <div class="float-hearts" id="floatHearts"></div>
+  <div class="butterflies" id="butterflies"></div>
+  <div class="paws" id="paws"></div>
+
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="moon"></div>
+      <span class="zzz">z</span>
+      <span class="zzz z2">z</span>
+      <span class="zzz z3">z</span>
+      <div class="sleeping-cat">
+        <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="108" cy="78" rx="62" ry="28" fill="#F4C542"/>
+          <ellipse cx="108" cy="80" rx="48" ry="18" fill="#ffe08a"/>
+          <path d="M48 78c-16 4-28 2-34-8 10 0 20-6 26-14 2 8 6 16 8 22z" fill="#E63946"/>
+          <circle cx="58" cy="58" r="26" fill="#F4C542"/>
+          <path d="M38 42l8 18h-16z" fill="#F4C542"/>
+          <path d="M70 40l10 20h-18z" fill="#F4C542"/>
+          <path d="M42 44l4 12h-8z" fill="#E63946"/>
+          <path d="M68 43l5 12h-9z" fill="#E63946"/>
+          <path d="M46 62c4 3 8 3 12 0" stroke="#1a1423" stroke-width="2" stroke-linecap="round"/>
+          <path d="M62 62c4 3 8 3 12 0" stroke="#1a1423" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="58" cy="68" r="2.2" fill="#E63946"/>
+          <path d="M36 70h-12M36 74h-14M80 70h12M80 74h14" stroke="#1a1423" stroke-width="1.4" stroke-linecap="round"/>
+          <ellipse cx="148" cy="92" rx="10" ry="6" fill="#e0b22a"/>
+        </svg>
+      </div>
+      <p class="loader-msg">Someone loves you very much…</p>
+      <div class="loader-bar"><span></span></div>
+      <button class="enter-btn" id="enterBtn" type="button">Open your sky</button>
+    </div>
+  </div>
+
+  <button class="music-btn off" id="musicBtn" type="button" aria-label="Toggle music">
+    <span class="eq"><i></i><i></i><i></i><i></i></span>
+  </button>
+
+  <nav class="topnav" id="topnav">
+    <a href="#home">Home</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#letter">Letter</a>
+    <a href="#poem">Poem</a>
+    <a href="#timeline">Story</a>
+    <a href="#forever">Forever</a>
+  </nav>
+
+  <aside class="rail" id="rail">
+    <a href="#home" data-sec="home"><span class="num">01</span><span class="dot"></span><span class="lab">Home</span></a>
+    <a href="#gallery" data-sec="gallery"><span class="num">02</span><span class="dot"></span><span class="lab">Gallery</span></a>
+    <a href="#letter" data-sec="letter"><span class="num">03</span><span class="dot"></span><span class="lab">Letter</span></a>
+    <a href="#poem" data-sec="poem"><span class="num">04</span><span class="dot"></span><span class="lab">Poem</span></a>
+    <a href="#timeline" data-sec="timeline"><span class="num">05</span><span class="dot"></span><span class="lab">Story</span></a>
+    <a href="#forever" data-sec="forever"><span class="num">06</span><span class="dot"></span><span class="lab">Forever</span></a>
+  </aside>
+
+  <div class="walk-wrap" id="walkWrap">
+    <div class="walker" id="walker" title="A little cat for you">
+      <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="58" cy="44" rx="34" ry="16" fill="#F4C542"/>
+        <circle cx="92" cy="34" r="16" fill="#F4C542"/>
+        <path d="M80 22l8 14h-10z" fill="#F4C542"/>
+        <path d="M100 20l10 16h-14z" fill="#F4C542"/>
+        <path d="M82 23l5 10h-7z" fill="#E63946"/>
+        <path d="M102 22l6 11h-9z" fill="#E63946"/>
+        <circle cx="98" cy="33" r="1.6" fill="#1a1423"/>
+        <circle cx="104" cy="38" r="1.3" fill="#E63946"/>
+        <path d="M18 40c-8 8-12 4-16 0 8-2 12-10 16-16 2 6 2 12 0 16z" fill="#E63946"/>
+        <rect class="leg" x="36" y="54" width="6" height="16" rx="3" fill="#e0b22a">
+          <animate attributeName="y" values="54;50;54" dur="0.4s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="50" y="54" width="6" height="16" rx="3" fill="#e0b22a">
+          <animate attributeName="y" values="50;54;50" dur="0.4s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="64" y="54" width="6" height="16" rx="3" fill="#d4a017">
+          <animate attributeName="y" values="54;50;54" dur="0.4s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="76" y="54" width="6" height="16" rx="3" fill="#d4a017">
+          <animate attributeName="y" values="50;54;50" dur="0.4s" repeatCount="indefinite"/>
+        </rect>
+      </svg>
+    </div>
+  </div>
+  <div class="heart-gift" id="heartGift">
+    <div class="big-heart">❤️</div>
+    <p>Forever Yours</p>
+  </div>
+
+  <main>
+    <section class="hero chap" id="home" data-sky="#07070F">
+      <div>
+        <p class="eyebrow">Chapter 01 · First impression</p>
+        <h1 class="script">Welcome, <em>My Love</em></h1>
+        <p class="type-line" id="typeLine"></p>
+        <p class="hero-sub">A cinematic little world for a love that is only one month old — and already rewriting the color of ordinary days. Walk slowly. The kitten will keep you company.</p>
+        <a class="cta" href="#gallery">Begin our story →</a>
+      </div>
+    </section>
+
+    <section class="gallery chap" id="gallery" data-sky="#1b140c">
+      <div class="section-head reveal">
+        <p class="kicker">Chapter 02 · Memory gallery</p>
+        <h2>Not old photographs — new light</h2>
+        <p>We do not have years of albums yet. What we have is better: a first month, still warm in the hands. These are the feelings, framed like polaroids.</p>
+      </div>
+      <div class="polaroids">
+        <figure class="polaroid reveal" data-tilt>
+          <div class="shot"><img src="assets/photos/Tyra 4.jpeg" alt="A curious cat" /></div>
+          
+        </figure>
+        <figure class="polaroid reveal" data-tilt>
+          <div class="shot"><img src="assets/photos/Tyra 1.jpeg" alt="A curious cat" /></div>
+          
+        </figure>
+        <figure class="polaroid reveal" data-tilt>
+          <div class="shot"><img src="assets/photos/Tyra 2.jpeg" alt="A tabby cat" /></div>
+          <figcaption>Your midnight voice<span class="meta">The chat that forgot the clock</span></figcaption>
+        </figure>
+        <figure class="polaroid reveal" data-tilt>
+          <div class="shot"><img src="assets/photos/Tyra 3.jpeg" alt="A curious cat" /></div>
+          <figcaption>That look<span class="meta">When I knew this was different</span></figcaption>
+        </figure>
+        <figure class="polaroid reveal" data-tilt>
+          <div class="shot"><video src="assets/photos/Tyra 6.mp4" alt="A small kitten" /></div>
+          
+        </figure>
+        <figure class="polaroid reveal" data-tilt>
+          <div class="shot"><img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&w=800&q=80" alt="Cat gazing" /></div>
+          <figcaption>the little cat you love<span class="meta">I keep them like letters</span></figcaption>
+        </figure>
+        <figure class="polaroid reveal" data-tilt>
+          <div class="shot"><img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?auto=format&fit=crop&w=800&q=80" alt="Cat with flowers" /></div>
+          <figcaption>A month of gold<span class="meta">Still only page one</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="letter-sec chap" id="letter" data-sky="#2a1a14">
+      <div class="section-head reveal">
+        <p class="kicker">Chapter 03 · Opening envelope</p>
+        <h2>A letter, sealed in wax</h2>
+        <p>Tap the seal. Some words are meant to be unfolded.</p>
+      </div>
+      <div class="scene">
+        <div class="envelope" id="envelope">
+          <div class="paper" id="paper">
+            <h3>My Little Cat</h3>
+            <div class="hand">
+              It has only been a few weeks.All nights I fell asleep thinking of your name.<br /><br />
+              I still remember the first message — how something so small could feel like a door opening. I did not know then that I would start looking for you the way people look for sunrise.<br /><br />
+              You love cats. I love the way your voice changes when you talk about them. I love learning you slowly, carefully, like a poem I refuse to rush.<br /><br />
+              This is not a museum of old memories. We have not stacked years yet. What we have is better: a beginning that already feels like home.<br /><br />
+              I built you this little sky. Walk through it. Few weeks down. Forever to go — if you will have me.
+            </div>
+            <div class="sign">Always yours</div>
+          </div>
+          <div class="env-body"></div>
+          <div class="flap"></div>
+          <div class="seal">♥</div>
+        </div>
+      </div>
+      <p class="hint" id="envHint">Break the seal</p>
+    </section>
+
+    <section class="poem-sec chap" id="poem" data-sky="#1a0b12">
+      <div class="petals" id="petals"></div>
+      <div class="section-head reveal">
+        <p class="kicker">Chapter 04 · A poem</p>
+        <h2>Read this slowly</h2>
+        <p>Lines arrive the way we did — one, then another, then all at once.</p>
+      </div>
+      <div class="poem" id="poemLines">
+        <p>I have known you for a few weeks</p>
+        <p>and already the moon looks different.</p>
+        <p>You love small creatures</p>
+        <p>with quiet paws and enormous hearts —</p>
+        <p>I think that is how you love, too.</p>
+        <p>Soft. Sudden. Entire.</p>
+        <p>If I could, I would fold this month</p>
+        <p>into a sunlit windowsill</p>
+        <p>and let you nap inside it.</p>
+        <p class="gold">Stay. Stay. Stay.</p>
+        <p>The story is only on page one.</p>
+      </div>
+    </section>
+
+    <section class="chap" id="timeline" data-sky="#10182c">
+      <div class="section-head reveal">
+        <p class="kicker">Chapter 05 · Our love timeline</p>
+        <h2>Few weeks of weather</h2>
+        <p>From the first text to tonight. A booming little history.</p>
+      </div>
+      <div class="timeline-wrap">
+        <article class="tl reveal">
+          <div class="when">Day 01</div>
+          <h3>The first hii</h3>
+          <p>A message. A spark. The beginning we did not know was a beginning. I read it twice, then a third time, smiling like a fool.</p>
+        </article>
+        <article class="tl reveal">
+          <div class="when">Day 05</div>
+          <h3>We could not stop talking</h3>
+          <p>Hours disappeared between us. I did not mind. The ordinary room I was sitting in felt newly invented.</p>
+        </article>
+        <article class="tl reveal">
+          <div class="when">day 7</div>
+          <h3>I learned your laugh</h3>
+          <p>And now I collect it like gold. If the month had a soundtrack, it would be that sound, over and over.</p>
+        </article>
+        <article class="tl reveal">
+          <div class="when">day 10</div>
+          <h3>You and your cats</h3>
+          <p>You showed me your world — the soft one, the playful one, the one with whiskers. I wanted to live in it.</p>
+        </article>
+        
+        <article class="tl reveal">
+          <div class="when">Tonight</div>
+          <h3>A little website, a big heart</h3>
+          <p>I made you a sky because flowers wilt and texts scroll away. This stays. Scroll it whenever you need to remember.</p>
+        </article>
+        <article class="tl reveal">
+          <div class="when">Tonight</div>
+          <h3>Still just the beginning</h3>
+          <p>Few weeks  old and already fully in love. I am not asking the future to hurry. I am asking it to keep looking like you.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="finale chap" id="forever" data-sky="#050510">
+      <div>
+        <p class="eyebrow">Chapter 06 · The surprise</p>
+        <div class="pulse-heart">❤️</div>
+        <h2 class="forever">I Love You Forever</h2>
+        <p class="promise">Not a museum. Not a finished book. A promise spoken early because some truths refuse to wait for a safer date. One month in — and I already know the direction of my days.</p>
+        <p class="script" style="font-size: clamp(2rem, 6vw, 3.4rem); color: var(--yellow);">For My Little Cat</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="secret" id="secret">
+    <div class="secret-card">
+      <h3>You found my secret ❤️</h3>
+      <p>Five little taps on a kitten. Of course it was you. The secret is simple: I made all of this just to watch you smile.</p>
+      <button type="button" id="closeSecret">Keep wandering</button>
+    </div>
+  </div>
+
+  <audio id="bgm" loop preload="none">
+    <source src="https://cdn.pixabay.com/audio/2022/03/10/audio_2c8d126076.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="js/app.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/loader.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/envelope.js"></script>
+  <script src="js/cats.js"></script>
+  <script src="js/timeline.js"></script>
+</body>
+</html>

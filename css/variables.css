@@ -1,0 +1,21 @@
+/* ==========================================================================
+   variables.css — Design tokens (colors, shadows) shared across the site
+   ========================================================================== */
+
+:root {
+      --red: #E63946;
+      --red-deep: #b81d2c;
+      --yellow: #F4C542;
+      --yellow-soft: #ffe08a;
+      --blue: #2563EB;
+      --blue-deep: #1e3a8a;
+      --cream: #FFF8EC;
+      --cream-dim: #f3e6d2;
+      --ink: #1a1423;
+      --night: #07070F;
+      --dusk: #12182c;
+      --glass: rgba(255, 248, 236, 0.1);
+      --glass-border: rgba(255, 248, 236, 0.22);
+      --shadow: 0 20px 60px rgba(7, 7, 15, 0.28);
+      --sky: #07070F;
+    }
